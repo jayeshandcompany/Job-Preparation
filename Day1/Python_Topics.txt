@@ -1,0 +1,165 @@
+Indentation Matters
+input -> to take input
+Dynamic Type Casting
+X=y=5(Shared refrecne)
+
+Datatypes:
+Numeric: int, float, complex
+Sequence Type: string, list, tuple
+Mapping Type: dict
+Boolean: bool
+Set Type: set, frozenset
+Binary Types: bytes, bytearray, memoryview
+
+if number: //truthly or falsly (empty or 0)
+
+Walrus Operator in a while Loop
+assign and compare at same time
+
+if
+elif
+else
+
+used in arguments arbitrary number of arguments. 
+*args in Python (Non-Keyword Arguments) (indefinite vallues)
+**kwargs in Python (Keyword Arguments) (indefinite keys dict)
+
+Empty func or cond: PASS
+
+global/local
+global s(to use same name value inside global)
+
+Recursion -> Same Func with base condition
+ tail recursion (last call can be optimized) and non-tail recursion.
+
+
+Fibonacci  -> sum of all number less than n from 1
+
+Lambda- > Single line anonymous function
+
+map-> for every element Syn:
+map(convertto or func,iterator (jispe lagana h) )
+
+filter -> extract condiitonal elememts
+ filter(Cond, li (itertaor))
+
+reduce -> reduce to single value eq sum
+from functools import reduce
+
+Decorator -> declare using @
+A decorator is essentially a function that takes another function as an argument and returns a new function with enhanced functionality.
+In Python, functions are first-class objects, 
+
+string and all -> mutable
+
+list ->[], list() constructor
+insert-> to add at index
+ 
+Tuples -> immutable , diff data types
+single decalare need to add comma after elemt 
+tup = ('Geeks', )
+* to unpack multiple vallues
+
+Dictionary -> {}, dict() not maintains order , giver error if value not exist
+key:value 
+
+set-> unique and unordered={} but mutable
+Frzenset -> same as set but immutable frozenset([1, 2, 3, 4, 5])
+
+Array -> Numpy for faster calculation
+
+comprehension-> reate new lists by applying an expression to each item in an existing iterabl
+res = [val ** 2 for val in a] (list can be used for dict)
+
+from collections import Counter (used to count freq of any object)
+from collections import OrderedDict (remebers order)
+from collections import defaultdict (gives default 0 if el not exist) can use get(el,0) in normal dict
+
+from collections import deque  -> double end insert and delete from both end
+    applications like task scheduling, sliding window problems and real-time data processing.
+    Input Restricted Deque:  Input is limited at one end while deletion is permitted at both ends.
+    Output Restricted Deque: output is limited at one end but insertion is permitted at both ends.
+same methods like append just addd left at end for leftside
+
+try:
+except (instead of catch in py)
+else: (No Exceptio)
+finally (in any case)
+
+BaseException -> root for all execptions
+ custom exception  -> need to define  __init__ and __str__ for exec clas
+
+File Handling
+ f= open("filename", "mode") (use finally to close file )
+with open("geek.txt", "w") as file: (auto closes file after task done)
+modes : r, w, a, r+, w+, a+ (same for binary b)
+.read() -> to read content
+.strip() -> to remove newline characters
+.write() -> write in open file
+
+for csv we import csv
+for json- > import json -> json.load
+
+Pathlib:
+work with filesystem paths (Path('/'))
+.rglob('*.py') -> recusive search in Directory
+
+os for Directory level
+mkdir("my_directory")  # single directory
+os.makedirs("parent_directory/child_directory")  # nested directories
+.getcwd() ->  current directory 
+.rename("my_directory", "renamed_directory")
+os.chdir("new dir path")
+ os.rmdir("") removes dir 
+
+del obj name (to clear)
+
+Class -> collection of obj
+__init__ method: constructor in py
+var class (shared across obj) instance(unique)
+
+Encapsulation means hiding internal details of a class and only exposing what’s necessary.
+__var -> Private Variables _*2
+
+Acess:
+Public: anywhere
+Protected: class and subclass
+    self._age _*1
+ Private members: only inside Class
+ getter and setter methods are used to access and modify private attributes
+
+
+ super() -> inheritance parent class
+ # Child Class: Dog (ingherit class, multiple also supported)
+class Dog(Animal):
+
+Polymorphism:
+ Compile-time Polymorphism ->  Argument (overload)
+ run-time Polymorphism ->  inherit (child class same name)
+ 
+ Data abstraction means showing only the essential features and hiding the complex internal details
+ 
+ Abstract classes are created using abc module and @abstractmethod decorator,
+Abstract classes (import abc and inherit)
+ @abstractmethod -> decorator
+@property -> (after declared can be used as obj.prop)
+
+iterator -> used for lazy loading memory effecient
+__iter__(): Returns the iterator object itself.
+__next__(): Returns the next value from the sequence. Raises StopIteration when the sequence ends.
+
+math -> module for all maths functions
+random -> otp vgerah (has seed to replroduce key)
+datetime -> to play with dates .today etc
+OS -> to  play with directories
+Sys -> sys module provides access to variables and functions that interact closely with Python interpreter 
+Platform -> access information about underlying platform (hardware and operating system)
+
+Array -> same data types 
+heap queue ->  min(default)/max
+    import heapq
+heapq.heapify() -> convert list to heap
+
+Bisect -> module for fast binary search
+sorted way m rehta h while adding
+bisect.bisect(list, num, beg=0, end=len(list)) -> returns index 
