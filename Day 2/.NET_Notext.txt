@@ -1,0 +1,58 @@
+CLR -> common language runtime 
+Execution engine of .NET. It is the virtual machine that runs .NET applications. 
+
+CTS -> Common Type System
+defines all the Datatypes
+
+CLS -> common Language Specification
+A set of rules that languages must follow to be interoperable in .NET.
+
+MSIL / CIL (Intermediate Language)
+code generated after .net compiling
+
+JIT Compiler (Just-In-Time):
+convert IL -> Machine Languag
+
+GAC (Global Assembly Cache) -> all the 
+
+SOLID in real projects -> design concept
+
+S -> Single Responsibility Principle (SRP)
+    A class should have one reason to change (one responsibility).
+    if need to change email provider need to changes in class (testing difficult)
+        public class OrderService
+    {
+        public void CreateOrder(Order order) { }
+        public void SaveToDatabase(Order order) { }
+        public void SendEmail(Order order) { }
+        public void GenerateInvoicePdf(Order order) { }
+        public void LogOrder(Order order) { }
+    }
+O —> Open/Closed Principle (OCP)
+    Code should be open for extension, closed for modification.
+    ek payment method k ander multiple functions ki jagah ek interface banake func usse inherit karlenge
+
+L — Liskov Substitution Principle (LSP)
+    A child class must behave in a way that does not break the expectations of the parent.
+    class ke uper depend ki jagah interface ke upar depend karo
+
+I — Interface Segregation Principle (ISP)
+    interface multiple banalo ek me dalne ki jagah
+D — Dependency Inversion Principle (DIP)
+    high level module should not depend on low level
+
+delegate -> hold refrences of fucntion (behaviour passing)
+real life -> sorting what to use as key (diff functions)
+has delegate in  name and can refer to any function
+can refer to multiple funct (both func executes)
+
+public delegate int MathOperation(int a, int b);
+public class Calculator
+{
+    public static int Add(int x, int y) => x + y;
+    public static int Multiply(int x, int y) => x * y;
+}
+
+Callback -> control move to another object 
+
+Events -> Publish subscribe

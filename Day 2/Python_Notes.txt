@@ -1,0 +1,59 @@
+Bisect -> module for fast binary search
+sorted way m rehta h while adding
+bisect.bisect(list, num, beg=0, end=len(list)) -> returns index  (add _left for leftmost index (same for right))
+
+bisect.insort(list, num, beg=0, end=len(list))  list must be sorted
+
+The collections module in Python provides specialized containers
+
+Counters
+A counter is a sub-class of the dictionary. It is used to keep the count of the elements
+
+OrderedDict  -> order prerserver karti h 
+defaultdict -> default value deti h
+
+ChainMap
+A ChainMap encapsulates many dictionaries into a single unit and returns a list of dictionaries.
+multiple dictionaries isme rehti h 
+
+NamedTuple
+A NamedTuple is like a regular tuple but with named fields
+class collections.namedtuple(typename, field_names)
+
+Deque -> Double Sided Queue
+
+UserDict -> to create own dict
+UserList -> wrapper list to create list
+UserString -> create own string
+
+The functools module offers a collection of tools that simplify working with functions and callable objects.
+
+Partial -> used to create  
+partial(func, /, *args, **keywords)
+
+Partialmethod Class
+Partialmethod works like partial, but for class methods. 
+  set_red = partialmethod(_color, type='red')
+
+. cmp_to_key
+Cmp_to_key converts a comparison function into a key function.
+
+reduce -> reduce to single consolidate value
+sum_of_list1 = reduce(lambda a, b:a + b, l1)
+
+Tkinter -> used to create GUI
+Tk()  -> main class window
+mainloop() -> starts event loop
+label = tk.Label(master, option=value)
+Button
+entry -> textbox single line
+ multiple function to create GUI app
+
+ csv -> to read and work with csv
+ pandas can also be used
+ import pandas as pd
+# Read the CSV file into a DataFrame
+df = pd.read_csv("file name")
+
+
+Openpyxl is a Python library for reading and writing Excel 
