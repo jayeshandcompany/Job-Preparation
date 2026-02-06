@@ -1,0 +1,16 @@
+Requests  -> to call api
+get 
+post
+put
+patch 
+delete 
+head
+
+100-199 information
+200-299 success 
+300 - 399 server error
+400- 499 client error
+
+requests.get(url, params={key: value}, **kwargs)
+params: Dictionary or bytes to be sent in the query string for GET requests. (Optional)
+**kwargs: Additional optional arguments such as headers, cookies, authentication, timeout, proxies, verify (SSL), stream, etc.
