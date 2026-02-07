@@ -1,0 +1,10 @@
+Context Manager -> cleans resources after use like db connection
+ using with op
+ custom context -> class -> 3  __init__, __enter__, __exit__
+
+ Module -> organize Code into reusable fields
+ import math -> namesapce alag rehta has
+ from math import * -> saare humare namespace m include ho jate h 
+
+ Virtual Environment -> alag alag project Dependency
+ virtualenv module karta h

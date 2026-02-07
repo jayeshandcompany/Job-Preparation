@@ -1,0 +1,3 @@
+appsetting.json -> global variables and connection sring 
+program.cs -> main netry point
+Worked on Project
