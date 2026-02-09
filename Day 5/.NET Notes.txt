@@ -1,0 +1,47 @@
+Middle ware pipeline:
+request delegate -> request me process hota h async delegates
+request incoming middleware called jab jati h toh vapis call hota h     
+context -> request, next -> middleware next
+
+program.cs -> authentication, authorization , custom
+
+CLR - running, managing, and securing managed code. 
+    manages code, handles memory management, JIT compilation, exception handling, type safety, and thread management.
+Flow:
+c# code -> c# compiler -> IL -> CLR -> JIT -> Machine 
+
+JIT -> Convert IL Code -> machine Specific (Platform independece)
+3 types:
+    pre -> convert all code at once
+    econo -> convert methods when needed release later
+    normal -> converts method once , keep in memory (default)
+compilation happens per methods
+
+GC-> allocate and free
+no manual
+Dispose()	-> Release unmanaged resources
+using-> 	Ensures deterministic cleanup
+GC.SuppressFinalize() -> 	Avoid finalizer
+GC.Collect()->	Force GC (not recommended)
+
+.Net Fw        .Net Core 
+windows         cross
+slow            fast
+micro poor      excellent
+partial open sc full
+
+ISP avoids fat interfaces and promotes role-based interfaces, improving flexibility and reducing impact of changes.
+
+        IF      abstract
+        multiple     nahi
+fields  no          yes
+cons    no          yes
+acess mod no        yes
+cons   no           yes
+
+        static vs abstract
+    dono ka object create nahi ho sakta
+    abstract supports inheritance so polymorphism possible
+    static state is global while abstract  is instance based
+
+Abstract classes represent incomplete concepts and must be inherited to provide concrete implementations. (object  cannot be created)
