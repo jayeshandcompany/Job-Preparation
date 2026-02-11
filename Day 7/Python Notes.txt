@@ -1,0 +1,3 @@
+Decorator  -> Current Function me new add karte h using @
+wrapper function banke jisme func parameter m jata h 
+argumenets k liye hum *args ka istemal taki sabkeliye kam kare

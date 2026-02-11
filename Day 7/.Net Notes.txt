@@ -1,0 +1,3 @@
+Never store Password raw in table
+use hashing -> aes256 latest 
+secret key -> generate krna padti h 
