@@ -1,0 +1,6 @@
+decorator  -> @ karkemethod k pehle lagake uski functionality add arte h 
+arguments k liye @@args v-> dynamic no of argumenets
+
+Closure -> function apne bahar vali lexical values ko acess kar skta h 
+definition scope -> lexical scope banta h 
+modify -> ke liye nonlocal keyword se declare krna padega variable

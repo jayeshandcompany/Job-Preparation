@@ -1,0 +1,7 @@
+| Clue              | Meaning               |
+| ----------------- | --------------------- |
+| Sorted array      | Use opposite pointers |
+| Pair problems     | Try left + right      |
+| Subarray problems | Use sliding window    |
+| Remove duplicates | Slow + fast pointer   |
+| Palindrome        | Start + end           |

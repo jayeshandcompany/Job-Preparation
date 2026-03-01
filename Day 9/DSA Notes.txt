@@ -1,0 +1,10 @@
+Array -> 
+    two Pointer -> brute Force Reduce -> Two Pointer Sahare Loop
+        check every pair (no) -> move pointe skip unnecesaary
+    Pair Sum in Sorted Array -> Pointer Moving toward each other
+    Remove Duplicate -> Fast move every case , slow move on unique
+    Reverse array in place -> left, right pointer swap
+    Partition Negatives Left, Positives Right -> 2 pointer
+        update l with non negate and positve with non posiituve and then replace
+    closest sum-> same as two sum move pointer toward each other
+    

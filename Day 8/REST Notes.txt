@@ -1,0 +1,55 @@
+REST -> Stateless
+1.Sepearation of concern -> 
+    Client ->UI 
+    Server -> data + buisness logics
+2. Stateless:
+    server does not store anything about user
+3. validations should be server side
+
+GET 
+POST  -> same value not (*)
+PUT
+PATCH -> Partial Update, same value not (*)
+DELETE 
+
+200-> Sucess
+300-> Server
+400-> User
+
+HTTP -> text/binary
+ Url ->Local dns,OS resolver, recursive dns server
+ TCP handshake ->
+
+ LINq -> Language + Compiler + Standard Operators + Providers
+ IEnumerable -> in memory (delegates) executed immediatly
+    list.where(x=>x>10)
+IQueryable -> Remote Exec, querytree , query Convert
+    db.list.where 
+    
+deffered execution lazy->
+tab execute hota h jab use kar rahe ho
+agar tolist() vgerah istemal karoge toh immedaite hoga
+
+2 Operators
+Streaming -> process one element at time: Memory Efficient
+    eq: select , where
+Buffering -> need full dataset
+    eq: Orderby , group by 
+
+Expression Trees (iQueryable)
+query convert hota h taki db se leke aasake
+
+EF Core -> query translate nahi ho pai toh vo pura  data pull kardegi
+
+Parallel LINQ (PLINQO) -> advance concepts
+Automatic partitioning -> load divided between multiple sources
+Load balancing
+Parallel execution -> sath m 
+
+N+1 Query Problem
+1 query → fetch parent records
+    N queries → fetch related child records (one per parent)
+    eq -> users ki list li  -> loop wise user pe -> post se data pull kar rahe
+data acess concern -> Lazy loading
+loop-> query
+ solution simple sql -> Join , LINQ -> include karlo

@@ -1,0 +1,28 @@
+REST API ->
+Web api hoti h 
+    program.cs -> entry Point
+    Controllers -> http endpoint
+
+benefits:
+    Simple Serialization : serialize data 
+    authentication and authorization: JWT & Policy based authentication
+    Route & verb -> query string and reguest body 
+    HTTPS -> privacy
+    (Automatic support )
+
+httprepl  (Read Eval Print Loop)-> directory ki tarah acess karta h http api ko
+
+Controllers -> public class 
+    public method -> action -> HTTP reguest
+Base -> ControllerBase (basic functionality for HTTP Request)
+kestrel -> cross platform webserver
+
+Dependency Injection -> readonly object bnalo _ 
+    phir construtor me Dependency daldo
+    
+HTTPcontext -> Contains all details of the HTTP Request
+MiddleWare-> Host /Builder banate h 
+
+appsettings.json -> Configurations dictionary form m (default)
+Static  -> same across multiple requets (list shared ) 
+Actionresult -> helps in sending http status and other with data
