@@ -1,0 +1,137 @@
+API -> applications programming interface
+        provides a method of communication
+
+HTTP -> Hyper text transfer Protocol
+        used by aPI (base)
+        different versions 1.0, 2.0, 3.0 (Latest)
+    methods:    
+    GET -> select
+    POST -> add
+    PUT -> Full update
+    PATCH -> PArtial Update
+    DELETE -> DELETE
+    
+    Status Code -> 
+    200 -> Sucess
+    300->server error
+    400-> user error
+
+    Headers -> Key value Extra Information per request
+
+    Cookies  -> Store Session tokens (used very frequently)
+    CORS -> Cross Origin Request Sharing
+     no Request to diff domain (to Prevent Fraud) (default not allowed)
+
+     Request Cache -> Copy if same endpoint is called multiple times
+        time Set kardo kitne time k liye
+Query Parameter -> used to filter data (same as query string)
+    pizza?name = "test"
+Path Variable -> added to path and used to select based on id
+    pizza/id
+Content Negotiation -> tells client & Server mutually decide which format data will be shared
+TCP -> base Protocol controls how data is flow on internet
+DNS -> IP adress of Website 
+Simple JSoN -> just get JSON Data
+SOAP -> Simple Object Acess Protocol
+        HTTP -> concept (different systems)
+GRapHql -> decide which format need data
+grpc -> GO Labguage developed by google very fast
+REST -> Type of API 
+    JSON is used (Format data)
+    HTTP -> Request & methods
+    statelessness, 
+    client-server communication, 
+    cacheability, 
+    a uniform interface
+URI -> uniform Resource identifier -> uniquely identify every request
+    (basically URL but unique)
+API Versioning -> new versions as updates  (should be avoided)
+    URI -> url m version  
+        GET PIZZA/vl, PIzza/v2
+    Header -> Custom Header
+        X-Api-Version = 1
+    Body -> api request body m add kardo
+        {"version":1}
+    
+Pagination -> instead of returning all data (in pages ) small and conveient
+    Offset and Limit Pagination -> same as in SQL used offset and Limit
+        offset -> stating point , limit -> no of data
+        GET /api/posts?offset=0&limit=10
+    cursor -> provides a cursor such as timestamp
+        GET /api/posts?cursor=eyJpZCI6MX0
+    Page based -> you specify page and limit
+        GET /api/posts?page=2&limit=20
+    Time based -> jahan time ke basis pe karna ho 
+        GET /api/events?start_time=2023-01-01T00:00:00Z&end_time=2023-01-31T23:59:59Z
+    Keyset -> last acess key is sent send data next 
+        GET /api/products?last_key=XYZ123 
+
+RateLimiting -> limit the no of calls that can be made (set frequency)
+Idempotency -> Providing same result even if multiple calls are made
+HATEOAS -> Hypermedia As The Engine Of Application State 
+    instead of hardcode , uri are returned by server
+Error Handling ->   use correct HTTP status Codes
+    enough detail in error message
+    consistent error format
+
+Authentication -> secure communication
+types
+    BasicAuthentication -> built in 
+        header authorization -> username & password ((encoded))
+    Tokenbased -> token is passed without any state (used for paid API's)
+
+    JWT -> JSON web token
+            Encrypted token contains all the data
+    OAuth 2.0 -> HTTP service accounts eq google
+    session based ->session is created after login 
+        session id is stored in cookie (validate session id)
+
+Authorization -> rights to view or not
+types
+    Attribute Based Access Control (ABAC) -> predefined roles & permission (attribute set)
+    Discretionary Access Control (DAC) -> Owner decided acess for user
+    Policy-Based Access Control (PBAC) -> based on policy (like resource, environment)
+    Role Based Access Control (RBAC) -> Role in Organization
+    Mandatory Access Control (MAC) -> controlled by OS or central authority
+    Relationship-Based Access Control (ReBAC)-> based on Relationship between user and resource
+API Keys -> Encrypt , Change with time, do not use client side, 
+API Documentation -> API Design Detail for developer and non technical eq swagger , Postman
+API Security -> used to prevent Unauthorized acess (OWASP-Open Web Application Security Project)
+API design -> simplicity, consistency, security, and proper documentation
+API performance -> 
+    Performance Metrics -> Response time, Latency, Failed request rate, throughput, availability
+    Caching -> frequently acessed data 
+        HTtp Caching, database caching, 
+    Load balancing -> distributing network traffic across a group of backend servers -> isme ip hum load balancer ki use karte h 
+    Rate Limiting -> controlling the number of requests (Prevents DDOS)
+    Profiling and Monitoring ->
+        Profiling -> understanding behaviour of API (Rerquest, Response , time taken)
+        Monitoring -> checking the status to verify API is up 
+    Performance testing -> API me variious test karte h dekh ke kaisa perform karta h vo
+    Error handling ->   Error handling retries
+API Integration -> how multiple API Communicate with each other 
+    Sychronus vs asynchronus API -> Sychronus waits , asynchronus don't multiple request concurrently
+    Event Driven Architecture -> event fire and catch
+    API gateway -> common entry point to handle all non buisness task
+    Microservices Architecture  -> single-function modules with well-defined interfaces
+        Monolithic -> Built Application as Single unit
+        Improved scalability: Individual microservices can be scaled independently based on their specific needs
+        Increased agility: Microservices can be developed, deployed, and updated independently, enabling faster release cycles
+        Enhanced resilience: If one microservice fails, it doesn't necessarily impact the entire application
+        Technology diversity: The flexibility of microservices allows teams to use the most suitable technology for each service
+    Webhooks vs Polling -> 
+        Polling -> Client repeat request to check for updates
+        Webhooks -> server sends an update to client when they happens
+    Batch Processing -> make one batch request instead of multiple calls
+    Messaging Queues -> These queues act like a buffer, storing messages or data sent from a sender (producer), allowing a receiver (consumer) to retrieve and process them at its own pace.
+        RabbitMQ -> t implements the Advanced Message Queuing Protocol (AMQP)
+        Kafka -> Real time, fault tolerant, 
+API Testing-> used tore
+    Unit -> Isolate Component and test it
+    Integration Testing  -> Integrate karke test karna
+    Functional Testing -> test API Endpoint and returned value
+    Load testing -> diff load pe test karna
+Real time API'S -> immedaite acess to latest data 
+    Web sockets -> Bidirectional message transfer 
+    Server Sent Events -> enables a server to push data to clients whenever a particular event takes place.
+
