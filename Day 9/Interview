@@ -1,0 +1,15 @@
+CORS -> Request jati h Response bhi aata h bus JS blocks iter
+
+REST -> Principles:
+        stateless -> each request contains user data 
+        client, Server -> UI & data concerns Seperated
+2-> sucess
+3-> redirect
+4-> client KeyError
+5-> server error
+
+Exception handle ->
+    global Exception handler
+    exception filter
+    set status code accordingly
+    

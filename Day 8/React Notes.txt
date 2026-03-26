@@ -1,0 +1,62 @@
+Conditional Rendering -> can use if and else when creating Controllers
+
+List Reneder -> key dena padti h 
+        this is used to filter add, delete or udpate operation dotnet
+
+Respond to events -> event handler declare inside component 
+        do not use () with function Automatic calling done
+
+state -> 2 tarah se kar sakte h
+    human -> button ki click
+    computer -> timeout, image loaded
+useState -> returns 2 -> Current State, function that lets you update it
+    triggers rerender (no changes calculated then no chnages are done)
+            [count, setCount] = useState(0);
+    objects are mutable , unko usestate me daal ke modify krne is mutation
+    react has no ideaof chnnages
+    ... -> shallow one ,level deep
+      can be used for prepend and append  
+         ...artists, // that contains all the old items
+        { id: nextId++, name: name } // and one new item at the end
+    Map function is used to iterate through Array
+    counters.map((c, i) => {
+      if (i === index) {
+        // Increment the clicked counter
+        return c + 1;
+      } else {
+        // The rest haven't changed
+        return c;
+      }
+      to insert and delete use slice and spread operator and create new array and assign
+      ...artists.slice(insertAt)
+Hooks-> function name starts with use
+
+Props -> same as parameter , Object i.e dictionary ki form m
+        immutable
+composition -> breaking complex UI into multiple parts
+
+Rendering -> declaratie approach ()
+    snapshot leke rakhta h aur usse hi sabko validate karta h (toh last chnage hi reflect hoga)
+        aur alert m hamesha snapshot wali value hi aayega even if you use timeout
+    VDOM -> Memory of DOM to compare changes 
+    steps:
+        Initial Rendering -> renders the root element
+
+    1. triggering a render -> Initial or status is updated
+            Initial -> createRoot
+            Rerender when status is updated  -> using set function
+ 
+    2. Rendering -> Initial ->root call hoga -> DOM nodes create hogi
+                rerender -> function component whose status update ->
+                    check which property has changed, calculate changes
+    3. commit chnages to DOM -> 
+                Initial uses appendchild
+                rerender -> apply minimal changes
+batching -> multiple updates before rerender
+    n => n + 1 -> updater (queued update ) function ( if added after normal function takes place)            
+
+enable/disable krna h toh uska code nahi likhna h just set condition based on some variable
+      and update that variable using state
+
+imperative -> command each element to do something
+

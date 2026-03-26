@@ -1,0 +1,159 @@
+Route Attribute  -> added at top of the controller class  base route for all actions in that controller. It can also be added to individual action methods to specify a specific route for that action.
+        [Route("api/[controller]")] 
+HTTP method-specific attributes  -> used to specify the HTTP method (GET, POST, PUT, DELETE, etc.) for a specific action method. For example:
+        [HttpGet] , [HttpPost], [HttpPut], [HttpDelete]
+Route parameters  -> used to specify parameters in the route. For example:
+        [HttpGet("{id}")] 
+        public IActionResult GetById(int id) 
+        { 
+            // code to retrieve item by id 
+        }
+Query parameters  -> used to specify parameters in the query string. For example:
+        [HttpGet] 
+        public IActionResult GetByName(string name) 
+        { 
+            // code to retrieve item by name 
+        }
+Model binding attributes  -> used to specify how parameters should be bound from the request. For example:
+        [HttpPost] 
+        public IActionResult Create([FromBody] Item item) 
+        { 
+            // code to create a new item 
+        }
+        [FromRoute]: Binds data from route parameters. (e.g., GetProduct(int id) becomes GetProduct([FromRoute] int id))
+        [FromQuery]: Binds data from the query string. (e.g., GetProducts(string category) becomes GetProducts([FromQuery] string category))
+        [FromBody]: Binds data from the request body. This is typically used for complex types and is only processed once per action. (e.g., CreateProduct([FromBody] Product product))
+        [FromHeader]: Binds data from HTTP headers. (e.g., GetTenantData([FromHeader(Name = "X-Tenant-Id")] string tenantId))
+        [FromForm]: Binds data from posted form fields.
+        [FromServices]: Binds a parameter from the dependency injection container. (This is slightly different but still falls under the binding umbrella).
+        IActionResult -> a common return type for action methods in ASP.NET Core controllers. It allows you to return different types of responses (e.g., JSON, HTML, status codes) based on the outcome of the action. For example:
+        public IActionResult GetById(int id) 
+        { 
+            var item = _repository.GetById(id); 
+            if (item == null) 
+            { 
+                return NotFound(); // returns a 404 Not Found response 
+            } 
+            return Ok(item); // returns a 200 OK response with the item data 
+        }
+ActionResult<T> -> a generic version of IActionResult & specify the type of data returned.
+        public ActionResult<Item> GetById(int id) 
+        { 
+            var item = _repository.GetById(id); 
+            if (item == null) 
+            { 
+                return NotFound(); // returns a 404 Not Found response 
+            } 
+            return item; // returns a 200 OK response with the item data 
+        }
+ DTOs (Data Transfer Objects) -> simple classes that are used to transfer data between layers of an application. They are often used to shape the data being sent to or received from an API, and can help to decouple the internal data models from the external API contracts. For example:
+        public class ItemDto 
+        { 
+            public int Id { get; set; } 
+            public string Name { get; set; } 
+            public decimal Price { get; set; } 
+        }
+map dto to model -> you can use libraries like AutoMapper to map between DTOs and your internal data models. This helps to keep your controllers clean and focused on handling HTTP requests, while the mapping logic is handled separately. For example:
+        var config = new MapperConfiguration(cfg => cfg.CreateMap<Item, ItemDto>()); 
+        var mapper = config.CreateMapper(); 
+        var itemDto = mapper.Map<ItemDto>(item);
+input validation -> you can use data annotations to validate incoming data in your DTOs. For example:   
+        public class ItemDto 
+        { 
+            public int Id { get; set; } 
+            [Required] 
+            public string Name { get; set; } 
+            [Range(0.01, double.MaxValue)] 
+            public decimal Price { get; set; } 
+        }
+Dependency Injection -> ASP.NET Core has built-in support for dependency injection, which allows you to inject services into your controllers. This helps to keep your controllers loosely coupled and makes it easier to test them. For example:
+        public class ItemsController : ControllerBase 
+        { 
+            private readonly IItemRepository _repository; 
+            public ItemsController(IItemRepository repository) 
+            { 
+                _repository = repository; 
+            } 
+            // action methods here 
+        }
+    Multiple Steps
+    1. Services register with different lifetimes (Transient, Scoped, Singleton) in the Startup.cs or Program.cs file.
+        Transient -> A new instance of the service is created each time it is requested. 
+                        suitable for lightweight, stateless services.
+        Scoped -> A new instance of the service is created per scope. 
+                     scope typically corresponds to a single HTTP request. 
+                     services that need to maintain state within a request  not to be shared across requests.
+        singleton -> A single instance of the service is created and shared across the entire application. This is suitable for services that maintain state that should be shared across all requests, such as caching or configuration services.
+    2. Controllers receive dependencies through constructor injection.
+    3. The framework automatically resolves the dependencies when creating controller instances to handle incoming HTTP requests.
+    
+    types 
+    construcctor injection -> most common, dependencies are provided through the constructor of a class. This allows for better testability and separation of concerns.
+    method injection -> dependencies are provided as parameters to a method. This is less common than constructor injection and is typically used for specific scenarios where a dependency is only needed for a single method.
+    property injection -> dependencies are set through public properties of a class. This is less common and can lead to issues with immutability and testability, so it is generally not recommended & supported in ASP.NET Core.
+    custom service providers -> you can create custom service providers to control how dependencies are resolved. This is an advanced scenario and is typically used when you need to implement custom logic for resolving dependencies or when integrating with third-party libraries that require specific service resolution behavior.
+caching -> ASP.NET Core provides built-in support for caching, which can help to improve the performance of your API by storing frequently accessed data in memory or other storage mechanisms. There are several types of caching available:
+    In-memory caching -> stores data in the memory of the application. This is suitable for small amounts of data that can be quickly accessed.
+    Distributed caching -> stores data in a distributed cache, such as Redis or SQL Server. This is suitable for larger amounts of data or when you need to share cached data across multiple instances of your application.
+    Response caching -> caches the responses from your API actions, which can help to reduce the load on your server and improve response times for clients. You can use attributes like [ResponseCache] to control how responses are cached.
+asynchronous programming -> ASP.NET Core supports asynchronous programming, which can help to improve the scalability and responsiveness of your API. By using async/await, you can free up threads to handle other requests while waiting for I/O operations (like database calls) to complete. For example:
+        public async Task<IActionResult> GetById(int id) 
+        { 
+            var item = await _repository.GetByIdAsync(id); 
+            if (item == null) 
+            { 
+                return NotFound(); 
+            } 
+            return Ok(item); 
+        }
+Performance optimization -> there are several techniques you can use to optimize the performance of your API, including:
+    Indexing -> index is a B-Truee structure that allows for fast retrieval of data based on the indexed columns. By creating indexes on frequently queried columns, you can significantly improve the performance of your database queries.
+        types of indexes:
+        Clustered index -> determines the physical order of data in the table. Each table can have only one clustered index, and it is typically created on the primary key.
+        Non-clustered index -> does not affect the physical order of data in the table. A table can have multiple non-clustered indexes, and they are typically created on columns that are frequently used in search conditions or join operations.
+    Query Optimization -> optimizing your database queries can help to improve performance. This can include techniques like selecting only the necessary columns, using joins effectively, and avoiding unnecessary subqueries.
+        N+1 Query Problem -> this occurs when an application makes one query to retrieve a list of items, and then makes additional queries for each item to retrieve related data. This can lead to a large number of queries being executed, which can significantly degrade performance. To avoid this, you can use techniques like eager loading or explicit joins to retrieve all necessary data in a single query.
+        Lazy Loading -> related data loaded on demand
+        Eager Loading -> related data loaded immediately 
+    Minimizing Network Roundtrips
+        Batch Queries-> combine multiple operations(eq add ke baad select)
+        Projection -> select only required fields
+    use profiling tools to view performance bottlenecks
+    Caching -> as mentioned earlier, caching can help to reduce the load on your server and improve response times.
+    Asynchronous programming -> using async/await can help to improve scalability and responsiveness.
+    Database optimization -> optimizing your database queries and using techniques like indexing can help to improve the performance of your API when accessing data.
+    Compression -> enabling response compression can help to reduce the size of responses sent to clients, which can improve load times.
+    Load balancing -> using a load balancer can help to distribute incoming requests across multiple instances of your application, improving scalability and availability.
+Microservices -> small, autonomous, independently deployable services
+        Principles:
+        Single Responsibility -> each microservice should have a single responsibility 
+        Independent Deployability -> each microservice can be deployed independently
+        decentralized Data Management -> each microservice manages its own data
+        Loose Coupling -> microservices should be loosely coupled to each other
+        Communication -> microservices communicate with each other using APIs, message queues, or other communication mechanisms. 
+            Common patterns include synchronous HTTP calls, asynchronous messaging using message queue Rabbit MQ, kAFka, and event-driven communication.
+        Fault Tolerance -> one failure should not affect others
+        
+    Service Discovery -> Conatiners are dynamic and ip chnages
+        client side -> Service register itself ,client asks registy and then calls service
+        Server side -> client calls Load balancer IP and then load balancer calls service
+    Event Driven architecture -> services communicate through events rather than direct API calls. 
+        Event producers -> generate events when certain actions occur (e.g., order placed, user registered).
+        Event consumers -> listen for events and react accordingly (e.g., send confirmation email, update inventory).
+        Message brokers -> facilitate communication between producers and consumers (e.g., RabbitMQ, Kafka).
+    DDD -> 
+    
+API Lifecycle -> 
+    1. client sends HTTP Request
+    2. Request Reaches web server 
+    3. Middle Ware pipeline
+    4. Routing (which controller -> action method)
+    5. Model Binding (convert HTTP req to .Net Object (class etc))
+    6. Model Validation (required, length et)
+    7. Filters (can be before & after) eq. authorization
+    8. Controller Action Execution
+    9. Controller calls applicationss serices( if reuired)
+    10. service calls database
+    11. action Result creation(action Reult etc)
+    12. Response Formatting -> JSON, XML
+    

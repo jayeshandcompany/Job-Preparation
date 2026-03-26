@@ -13,8 +13,9 @@ HTTP -> Hyper text transfer Protocol
     
     Status Code -> 
     200 -> Sucess
-    300->server error
+    300->redirect
     400-> user error
+    500 -> server error
 
     Headers -> Key value Extra Information per request
 

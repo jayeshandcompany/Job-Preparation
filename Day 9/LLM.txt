@@ -1,0 +1,78 @@
+LLM -> Large Languag Model trained on large text datasets to understand and generate human-like text. 
+    Examples include GPT-3, Gemini, and Claude  . 
+    They are used in various applications such as chatbots, content generation, and language translation.   
+    based on transformer architecture
+Transformer architecture -> neural network architecture uses self-attention mechanisms to process sequential data.
+    components include:
+        Tokenization -> process of converting text into smaller units (tokens) for model processing.
+        Positional Encoding -> converted into vectore representations that capture the position of each token in the sequence.
+        self attention -> determine what has more weight and influence others
+        Multi head attention -> Mulitple heads to focus on different parts of the input sequence simultaneously.
+        Feed forward neural network -> processes the output of the attention mechanism to generate the final output.
+    Benefits include:
+        - Ability to capture long-range dependencies in text.
+        - Parallel processing of input data, leading to faster training times.
+        - Improved performance on various natural language processing tasks compared to previous architectures.
+Training Proces ->
+    Pretraining -> Huge Dataset using Self Supervised Learning
+    Fine tuning -> Special training for specialized tasks eq chat, voice
+    . RLHF (Reinforcement Learning with Human Feedback) -> Human ranks Output, model learns better response
+
+Limitations -> 
+    Hallucination -> generate False Information Corrrectly
+    Context Window Limit -> Model remember limited tokens
+    Lack of Real Time Knowledge
+    Needs tools like: APIs , Retrieval systems
+Embedding -> ense, continuous vector representations of data
+            used for sematic relationship
+Training -> teaching model to find patterns and make predictions
+interference -> making predictions on some new data without any training
+Vector DB -> store, index, and retrieve high-dimensional vectors
+        index  approximate nearest neighbor (ANN)
+aagents -> autonomuos system making decision and working 
+
+Prompt Engineering -> Process of designing inputs to LLM systems
+    types:
+        Zero Shot -> No Examples , simple translate to hindi
+        Few Shot -> with Few Examples
+        chain of thought -> Encourages reasoning to solve step by step
+        Role Prompting -> assign a role and then asks
+        Structured Prompting -> return in Structured Format (eq XML resource)
+    Best Practices ->:
+        Be Specific , list topics in depth
+        provide context -< assign a role
+        define Output -> Structured 
+    React -> Reason and act use external API and ttry again until olved
+    Chain-of-Thought -> think out loud and view ai thought process
+    Prompt caching -> store previous prompts and act accordningly
+    Streaming Response -> text grows ai keeps writing
+    system promptig -> set guideleines ecosystem
+    context -> previous information 
+    contsraints -> can be better for ai thinking
+    Context Compaction - reduce unnecesary information 
+
+pretrained -> alreay trained on datasets
+opem source -> availiable fro customization
+Self hosted -> runs on your hardware
+
+LLM API -> LLM typically works with API
+    Front end -> backend -> LLM API
+why Python -> Huge ecosystem , Easy Syntax, strong Library
+    AI/ML -> TensorFlow, PyTorch
+    LLM Tools -> LangChain, LlamaIndex
+    Data Processing -> NumPy, Pandas
+
+use generator when working with large datasets 
+and asynchronous programming for API
+
+Retrieval System (RAG) -> Retrieval Augmented Generation.
+        information retrieval with language generation to create more accurate, contextually relevant output
+        search algortihm for external data
+    Dynamic filter -> filter information provided by RAG
+    
+Fine tuning -> making it specizlize on a specifc task 
+ontext Engineering -> designina and organizing for information to provide to AI
+Tokens -> createdb by breaking texts
+context -> Information with Prompt
+Temperature -> control randomness
+

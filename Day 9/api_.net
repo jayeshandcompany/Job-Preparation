@@ -1,0 +1,29 @@
+API -> set of rules and protocols that allows software applications to communicate
+REST -> style that uses http methods
+GET -> retrieve , URL , Limited 
+POST -> add , request body
+
+stateless -> no state management in server side 
+Server doesn't store any client context between requests. 
+payload -> data sent in request or response body
+
+headers -> key value    
+            contains meta data about request
+
+content type -> to specify the type of data sent
+    Content-Type: application/json -> default
+    Content-Type: multipart/form-data -> file 
+    especially -> POST, PUT, PATCH 
+Accept -> tell server which form data client expects
+ query parameter -> key value pair added to url (optional)
+ path parameter -> url for specific id (mandatory)
+ 
+CORS (Cross-Origin Resource Sharing) allows a server to specify which domains are allowed 
+to access its resources. 
+    use data from same Origin
+
+JWT ->
+    Header: Token type & algorithm 
+    • Payload: User data (claims) 
+    • Signature: Verifies token integrity
+Bearer token is sent in request header

@@ -1,0 +1,8 @@
+Relational databases organize data into tables -> linkage between tables
+ ACID properties (Atomicity, Consistency, Isolation, Durability),
+ Limitations -> scalability, (massive dataset), unstrucuture or semi structured data
+
+ DDL -> data definition language: define and manage
+        create alter drop truncate
+DML ->  manage data within database objects
+    SELECT, INSERT, UPDATE, and DELETE

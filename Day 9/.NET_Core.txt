@@ -1,0 +1,17 @@
+C#  -> C# is a statically-typed language 
+Collections -> system.collections
+    Stack
+.NET Framework -> 
+    MVC -> architecture pattern 
+    Razzor pages -> dynamic html and C#
+
+DI -> provide dependecy injection for loose coupling and easy testing 
+    Microsoft.Extensions.DependencyInjection
+    Transient -> every time service is called  (authenticrion)
+    Scoped -> for each request within the same scope (userdetail)
+    singleton -> single 
+Caching ->  use repeated acess memory thorugh cinstance (logging)ache 
+    Memory Cache  -> imemorycache
+    Distributed cache -> IDistributedCache  
+Filters -> run before or after an action method
+    authorization filters, resource filters, action filters, and exception filter

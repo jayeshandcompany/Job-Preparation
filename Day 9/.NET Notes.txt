@@ -26,3 +26,52 @@ MiddleWare-> Host /Builder banate h
 appsettings.json -> Configurations dictionary form m (default)
 Static  -> same across multiple requets (list shared ) 
 Actionresult -> helps in sending http status and other with data
+
+Extension Method -> add new mwthod to existing clas
+        Class and method both should be static
+        public static class StringExtensions
+        public static string ReverseText(this string value)
+        {
+            char[] arr = value.ToCharArray();
+            Array.Reverse(arr);
+            return new string(arr);
+        } can be called directly using string.methodname
+Migration -> changes mnigrate krna 
+    code first -> define classs and tables are created
+    DB First -> Classes are created based on DB tables
+    commands:
+        dotnet ef migrations add InitialCreate
+        dotnet ef database update
+Configuration mehtod  -> HTTP request pipeline (middleware configuration).
+
+
+caching -> storing frequently accesed data in fast acess storagge layer
+types 
+    Memory -> IMemoryCache (dependency injection) is used for memory caching
+                _cache.TryGetValue(id, output) is used to acess value from cache
+                cache.Set(id, value, Time)
+            can be used in single server as diff server may have different cache
+    Distributed Cache -> IDistributedCache using 3rd party Redis, can be shared
+                bytes me convert karke serialize & deserialize krna padta h 
+                .set and .get
+time expiration > Sliding (after last acessed) & fixed
+
+unit testing -> Isolation testing of small peice of code usuaaly funtion
+        Xunit, Nunit, MSTEST
+
+    tested- Xunit 
+        [Fact]
+        public void Add_ReturnsCorrectSum()
+        {
+            var calculator = new Calculator();
+
+            var result = calculator.Add(2, 3);
+
+            Assert.Equal(5, result);
+        }
+Mocking -> Creating fake implementation for testing
+        (usuaaly for integration testing)
+        Moq, NSubstitute, FakeItEasy
+Stack -> LIFO execution,
+        used for mehtod execution
+heap -> store objects created with new

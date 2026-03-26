@@ -1,0 +1,25 @@
+python dynamically typed
+string is interned -> if two have same value make same key
+comprehension -> shorter way [expression for item in iterable if condition]
+Iterator -> object allowing traversal
+
+Decorator -> adds additional functionality to python
+closure -> function  retains value of outer scrope
+
+GIL -> Global Intercepter Lock -> thread Lock single thread run at time
+    only runs for managed code
+
+threading  -> module to create multiple threads
+    threading.Thread(target=funcname) used  to assing task to thread
+    multip le thread  but runs one by one
+
+multiprocessing -> bypasses GIL 
+asyncio -> asynchronous programming
+
+caching -> interrnal in memory-> 
+        from functools import cache
+        from functools import lru_cache
+    in disk:
+        from diskcache import Cache
+    Distributed -> Redis
+        import redis as r  r.set("user:1", "John")

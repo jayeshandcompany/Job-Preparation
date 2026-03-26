@@ -11,7 +11,7 @@ MSIL / CIL (Intermediate Language)
 code generated after .net compiling
 
 JIT Compiler (Just-In-Time):
-convert IL -> Machine Languag
+convert IL -> Machine Language
 
 GAC (Global Assembly Cache) -> all the 
 
@@ -37,7 +37,7 @@ L — Liskov Substitution Principle (LSP)
     class ke uper depend ki jagah interface ke upar depend karo
 
 I — Interface Segregation Principle (ISP)
-    interface multiple banalo ek me dalne ki jagah
+    interface multiple banalo ek me dalne ki agajh
 D — Dependency Inversion Principle (DIP)
     high level module should not depend on low level
 

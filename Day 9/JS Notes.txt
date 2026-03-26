@@ -1,0 +1,19 @@
+var -> function scoped, redeclared
+Let -> block scoped , redeclared
+const -> block scoped , fixed , cannot be redeclared
+
+Arrow function -> by default inherits this
+let add = (a,b)=> a+b;
+
+destructing  -> easily acessing value
+        const {name, age} = user;
+Spread & Rest -> ...
+    arr2 = {arr1.., 1, 2} //Spread
+    func(arr...) //collect multiple values Rest
+
+closure -> inner func can still acess outer functionality
+
+Promises -> handles asynchronous operations. represents a future state
+    states > Pending, Fulfilled, Rejected
+
+Event Loop -> handle non bloking asynchronous operations (js is single thread)
