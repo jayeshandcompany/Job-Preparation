@@ -1,0 +1,68 @@
+ Component Composition -> breaking down screen into mutliple small components
+        composition (combining)
+    index.js -> Starting Point
+    app.js -> routing and multiple componets
+props -> properties that can be passed to components 
+    parent to child 
+Bundling -> combine multiple JS file into one
+Minification -> 
+
+Components -> 
+    fucntional -> produces html and uses  Props, do not have state, stateless 
+        JS code also but has only one return
+    Class-> import & extend React.Component
+     this -> class component to handle states and Props
+
+files:
+    node_modules -> External JS and file packages 
+    package.json: metadata of project and dependencies
+
+JSX -> javascript + XML 
+    single element -> if multiple can be fragmented (<> </>)
+Props:
+    data flow 
+        parent -> child - create state and pass its value and catch it in props inside child
+        child -> parent - pass functions and set it on value change by name provided
+State -> used in class component 
+    // state object is always declared in the constructor
+    constructor(props) {
+    // parent constructor is called using super
+    super(props);
+    // declaring the state object attributes and their respective values
+    this.state = {
+        attribute : "value"
+    };
+    }
+    render was used , and state value can be acesssed using {this.state.[valie]}
+    setstate : mehtod used to update state key and value passed
+
+Event handling -> camelCase & pass function
+        Synthetic Event developed by react to standard the browser events
+    to pass arguments
+    <button onClick={(e) => this.handleClick(id, e)}>
+Lists -> key Prop 
+         uniquely identify every component of the list
+         string , cannot be read
+         key changes -> remout, 
+         don't use index as it rerender
+Forms -> Components 
+        contolled -> onChange(e) -> directly update and use 
+        uncontroller -> ref use karte h and value tabhi acess hoti h jab needed
+
+useState-> state management in function
+    gives array of 2 elements:
+        1. state, ie variable - current value
+        2. function to update state variable
+Conditional rendering -> using if and else 
+    ternanry-> cond?if true: else
+    logical && -> only if true else nothing
+    anonymous function
+        (function () {
+        // statements
+        })();
+    
+Sharing data in Components -> 
+    parent -> child : props , that will be updated by state
+    Child -> Parent : Callback function that will be passed as props
+    Siblings -> props share value and callback function
+    Redux -> 

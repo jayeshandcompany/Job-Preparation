@@ -1,0 +1,55 @@
+Migration of Legacy Project:
+    Monolith -> Microservices Arhcitecture
+Excel -> intially used Microsoft.Office.Interop to create Excel and runs on STA threads
+        also very slow and have random failures and needed acess and work on some System
+    Migrated to OpenXMl for full control and Project Specific Requirement like Cell merging and all
+RabbitMQ -> 
+        Producer -> .NET Event Sitting that would call the rabbitMQ, Sends in JSON Format
+        Exchange: Route Message to diff queue based on key like invoice.Created, invoice.updated
+        Queue -> 2 one to transfer and one to Print , independently
+        Consumer -> Expeditor API take and insert data in their system
+        use persistent message and stable queue
+    Benefits:
+        Real time as Asynchronous
+        Keeps storing message and feed them to consumer
+        Start from the invoices that started Failing
+        Workers can be increased as per Requirement
+        Every invoice is logged 
+    Failures:
+        Retry if timeout or network glitch
+    Dead-Letter Exchange (DLX):
+        Reties Fails repeatedly - push to a Dead Letter Queue (DLQ)
+        prevents infinite Retry
+    
+Azure -> 
+    Azure App Service -> Managed Enviroment beneficts -> auto Scaling, CI/CD
+    Azure Functions -> function reacting to a event -> Ex Message Queue 
+            No need for idle time payment
+    Azure Storage -> Cloud Storage to store PDF's, Images etc
+        Extremely cheap & Durable (Multiple Copies)
+    Azure SQL -> Managed SQL Server in the cloud.
+        Backups, Scaling & high availability
+    Azure Key Vault -> to store Secrets
+        Connection strings, API Keys
+    Steps:
+    1. Host your .NET Invoice API in Azure App Service 
+        Choose App Service & runtime
+        Store Secrets 
+        Enable Auto Scaling -> CPU > 70% , Requests > 2000/min & Down when CPU<40%
+    2. Configure RabbitMQ Infrastructure:
+            RabbitMQ on VM inside Azure (Common)
+            set Exchange -> topic (invoice)
+                Queues -> Diff for every Queue (Stable)
+                Routing Keys -> based on Open
+    3. Azure Function for Invoice Processing
+        link to invoice.processing.queue 
+        used RabbitMQ Trigger binding
+        Configure RabbitMQ Connection, Queue, Prefetch count
+    4. Azure Function for PDF Generation    
+        used SSRS to generate Invoice PDF and stored it on Azure Storage 
+    5. Implement Dead LEtter Queue -> 
+        All the messages that cannot be processed even after 3 retries are pushed into this 
+        and we have set an Auto timer to Run at Specific Intervals
+    6. Monitor Application using Application Insights
+        Message Processing time, downtime, resource Utilization
+    7. use Auto scaling everywhere needed 
